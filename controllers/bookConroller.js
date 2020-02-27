@@ -34,7 +34,8 @@ let books = [
 let idCreate = 6;
 
 function getAllBooks(req, res) {
-
+    console.log(books);
+    res.send(books);
 };
 
 function getBookById(req, res) {
