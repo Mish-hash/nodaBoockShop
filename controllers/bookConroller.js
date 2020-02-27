@@ -33,3 +33,30 @@ let books = [
 
 let idCreate = 6;
 
+function getAllBooks(req, res) {
+
+};
+
+function getBookById(req, res) {
+
+};
+
+function createBook(req, res) {
+
+};
+
+function updateBook(req, res) {
+
+};
+
+function deleteBook(req, res) {
+
+};
+
+module.exports = {
+    getAllBooks,
+    getBookById,
+    createBook,
+    updateBook,
+    deleteBook,
+};
