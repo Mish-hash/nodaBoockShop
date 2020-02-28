@@ -39,7 +39,12 @@ function getAllBooks(req, res) {
 };
 
 function getBookById(req, res) {
-
+    const id = req.params.id;
+    const book = books.find((book) => book.id === id);
+    if(!book) {
+        return res.sendStatus(400);
+    }
+    res.send(book);
 };
 
 function createBook(req, res) {
