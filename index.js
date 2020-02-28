@@ -8,6 +8,7 @@ const PORT = 2048
   res.send('Hello World!');
 }); */
 
+app.use(express.json());
 app.use(router)
 
 app.listen(PORT, function () {

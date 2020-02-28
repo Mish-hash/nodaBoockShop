@@ -48,7 +48,14 @@ function getBookById(req, res) {
 };
 
 function createBook(req, res) {
-
+    let body = {
+        id: idCreate++,
+        title: req.body.title,
+        author: req.body.auyhor,
+        description: req.body.description,
+    };
+    books.push(body);
+    res.send(body);
 };
 
 function updateBook(req, res) {
