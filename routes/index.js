@@ -1,4 +1,15 @@
 const express = require('express');
+const {
+    idBookScheme,
+    createBookBodyScheme,
+    updateBookBodyScheme
+} = require('../yupSchemes/yupSchemes');
+
+const {
+    validateBody,
+    valideteParams,
+    validateParamsBody,
+} = require('../middlewares/validators');
 
 const {
     getAllBooks,
@@ -11,9 +22,9 @@ const {
 const router = express.Router();
 
 router.get('/book', getAllBooks);
-router.get('/book/:id', getBookById);
-router.post('/book', createBook);
-router.put('/book/:id', updateBook);
-router.delete('/book/:id', deleteBook);
+router.get('/book/:id', valideteParams(idBookScheme), getBookById);
+router.post('/book', validateBody(createBookBodyScheme), createBook);
+router.put('/book/:id', validateParamsBody(idBookScheme, updateBookBodyScheme), updateBook);
+router.delete('/book/:id', valideteParams(idBookScheme), deleteBook);
 
 module.exports = router;
