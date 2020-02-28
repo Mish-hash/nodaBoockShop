@@ -77,7 +77,9 @@ function updateBook(req, res) {
 };
 
 function deleteBook(req, res) {
-
+    const id = req.params.id;
+    books = books.filter((item) => item.id !== id);
+    res.send('удалена книга по id# ' + id);
 };
 
 module.exports = {
