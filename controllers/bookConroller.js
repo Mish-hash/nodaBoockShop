@@ -48,10 +48,10 @@ function getBookById(req, res) {
 };
 
 function createBook(req, res) {
-    let body = {
+    const body = {
         id: idCreate++,
         title: req.body.title,
-        author: req.body.auyhor,
+        author: req.body.author,
         description: req.body.description,
     };
     books.push(body);
@@ -59,7 +59,21 @@ function createBook(req, res) {
 };
 
 function updateBook(req, res) {
-
+    const id = req.params.id;
+    const body = {
+        id: id,
+        title: req.body.title,
+        author: req.body.author,
+        description: req.body.description,
+    };
+    books = books.map((item) => {
+        console.log(item);
+        if(item.id === id) {
+            return {...item, ...body};
+        };
+        return item;
+    });
+    res.send(body);
 };
 
 function deleteBook(req, res) {
