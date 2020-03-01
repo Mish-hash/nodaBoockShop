@@ -49,7 +49,7 @@ function getBookById(req, res) {
 
 function createBook(req, res) {
     const body = {
-        id: idCreate++,
+        id: (idCreate++).toString(),
         title: req.body.title,
         author: req.body.author,
         description: req.body.description,
