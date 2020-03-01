@@ -1,7 +1,8 @@
 const express = require('express');
 const {
     idBookScheme,
-    bookBodyScheme
+    createBodyScheme,
+    updateBodyScheme
 } = require('../yupSchemes/yupSchemes');
 
 const {
@@ -21,8 +22,8 @@ const router = express.Router();
 
 router.get('/book', getAllBooks);
 router.get('/book/:id', valideteParams(idBookScheme), getBookById);
-router.post('/book', validateBody(bookBodyScheme), createBook);
-router.put('/book/:id', valideteParams(idBookScheme), validateBody(bookBodyScheme), updateBook);
+router.post('/book', validateBody(createBodyScheme), createBook);
+router.put('/book/:id', valideteParams(idBookScheme), validateBody(updateBodyScheme), updateBook);
 router.delete('/book/:id', valideteParams(idBookScheme), deleteBook);
 
 module.exports = router;
